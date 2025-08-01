@@ -11,7 +11,7 @@ uv sync
 ## Usage
 
 ```bash
-python -m spoofyarchiver --help
+python -m spoofy_archiver --help
 ```
 
 ## Todo
