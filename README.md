@@ -17,10 +17,10 @@ uv tool install spoofy-archiver
 pipx install spoofy-archiver
 ```
 
-If your system default python is not 3.12+
+If your system default python is not 3.11+
 
 ```bash
-pipx install --python python3.12 spoofy-archiver
+pipx install --python python3.11 spoofy-archiver
 ```
 
 If you must use pip
