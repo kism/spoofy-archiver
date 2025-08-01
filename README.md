@@ -9,13 +9,13 @@
 
 Install via [uv](https://docs.astral.sh/uv/getting-started/installation/) or [pipx](https://pipx.pypa.io/stable/installation/):
 
-```bash
-uv tool install git+https://github.com/kism/spoofy-archiver
-```
+`uv tool install git+https://github.com/kism/spoofy-archiver`
 
-```bash
-pipx install git+https://github.com/kism/spoofy-archiver
-```
+`pipx install git+https://github.com/kism/spoofy-archiver`
+
+If your system default python is not 3.12+
+
+`pipx install --python python3.12 git+https://github.com/kism/spoofy-archiver `
 
 ## Run
 
