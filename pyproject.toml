@@ -2,7 +2,7 @@
 
 [project]
 name = "spoofyarchiver"
-version = "1.0.1"
+version = "1.0.2"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -145,6 +145,7 @@ enable_error_code = [
 ]
 warn_unreachable = true
 warn_redundant_casts = true
+warn_no_return = true
 
 [tool.ty.rules]
 missing-argument = "ignore"

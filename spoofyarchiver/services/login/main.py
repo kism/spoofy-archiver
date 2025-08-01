@@ -40,17 +40,21 @@ def login_cli_interactive() -> Session:
             ).lower()
         except KeyboardInterrupt:
             user_input = "q"
-
         if user_input[0] == "u":
-            return login_user_pass()
+            session = login_user_pass()
         if user_input[0] == "z":
-            return login_zeroconf()
+            session = login_zeroconf()
         if user_input[0] == "o":
-            return login_oauth()
+            session = login_oauth()
         if user_input[0] == "r":
-            return get_librespot_rs_credentials()
+            session = get_librespot_rs_credentials()
         if user_input[0] == "q":
             sys.exit(0)
+
+        if session:
+            return session
+
+        logger.error("Login failed, try again.")
 
 
 def login_cli() -> Session | None:
