@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-from spoofyarchiver import cli
+from spoofyarchiver import __version__, cli
 from spoofyarchiver.utils import SERVICE_NAME
 from spoofyarchiver.utils.logger import get_logger, setup_logger
 
@@ -13,6 +13,8 @@ logger = get_logger(__name__)
 def main() -> None:
     """Main."""
     logger.debug("Starting up cli")
+
+    logger.info("Spoofy Archiver version %s", __version__)
 
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument(

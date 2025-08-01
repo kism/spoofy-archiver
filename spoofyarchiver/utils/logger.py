@@ -101,7 +101,7 @@ def setup_logger(
     for logger_name in loggers_to_silence:
         logging.getLogger(logger_name).setLevel(logging.WARNING)
 
-    logger.info("Logger configuration set!")
+    logger.debug("Logger configuration set!")
 
 
 def get_logger(name: str) -> CustomLogger:
