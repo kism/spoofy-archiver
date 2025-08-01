@@ -2,7 +2,7 @@
 
 [project]
 name = "spoofyarchiver"
-version = "0.1.2"
+version = "1.0.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
