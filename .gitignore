@@ -13,6 +13,8 @@ temp_*.json
 cookies.txt
 cookies.json
 *.cache
+# Old package name
+spoofyarchiver/**
 
 # Cspell
 .cspell/.cspellcache
