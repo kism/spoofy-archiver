@@ -30,6 +30,7 @@ def login_cli_interactive() -> Session:
         return session
 
     logger.info("Saved credentials not found, prompting...")
+    logger.info("Oauth is the best method, librespot-rs works, the rest I haven't had work.")
 
     user_input = ""
     while True:
