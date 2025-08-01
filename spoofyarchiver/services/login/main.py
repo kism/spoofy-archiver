@@ -52,7 +52,7 @@ def login_cli_interactive() -> Session:
             sys.exit(0)
 
 
-def login_cli() -> Session:
+def login_cli() -> Session | None:
     """Login to Spoofy using the CLI, non-interactively."""
     session = login_saved_session()
     if session:

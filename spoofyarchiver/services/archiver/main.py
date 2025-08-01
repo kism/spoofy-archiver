@@ -4,6 +4,7 @@ import time
 from pathlib import Path
 
 import requests
+from requests import RequestException
 from librespot.core import Session  # type: ignore[import-untyped]
 from pathvalidate import sanitize_filepath
 
@@ -71,7 +72,7 @@ class SpoofyArchiver(SpoofyAPISession):
         for _ in range(attempts):
             try:
                 return requests.get(url, timeout=5)
-            except requests.exceptions.ConnectionError:
+            except RequestException:
                 self.delayer.delay()
 
         return None

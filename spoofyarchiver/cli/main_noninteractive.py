@@ -5,6 +5,7 @@ from pathlib import Path
 from spoofyarchiver.services.api import SpoofyAPISession
 from spoofyarchiver.services.archiver import SpoofyArchiver
 from spoofyarchiver.services.login import login_cli
+from spoofyarchiver.utils import SERVICE_NAME
 from spoofyarchiver.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -13,6 +14,9 @@ logger = get_logger(__name__)
 def noninteractive(output_directory: Path, delay: int, url: str | None = None) -> None:
     """CLI."""
     session = login_cli()
+    if not session:
+        logger.error("Failed to login to %s.", SERVICE_NAME)
+        return
     logger.info("Logged in as %s", session.username())
 
     spoofy_api = SpoofyAPISession(session, output_directory=output_directory)

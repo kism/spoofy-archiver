@@ -15,7 +15,7 @@ from spotipy.oauth2 import SpotifyPKCE  # type: ignore[import-untyped]
 
 from spoofyarchiver.utils import SERVICE_NAME, get_logger
 
-from .constants import CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE
+from .constants import CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE, ZEROCONF_SESSION_FILE
 from .models import SpoofyLoginError
 
 logger = get_logger(__name__)
@@ -23,7 +23,7 @@ logger = get_logger(__name__)
 SERVICE_NAME_UPPER = SERVICE_NAME.upper()
 
 
-def login_oauth() -> Session:
+def login_oauth() -> Session | None:
     """Login to Spoofy using OAuth."""
     # https://github.com/spotipy-dev/spotipy
     scopes = [
@@ -88,16 +88,19 @@ def login_oauth() -> Session:
     return session
 
 
-def saved_credential_get() -> None:
+def saved_credential_get(saved_credential_file: Path | None) -> None:
     """Due to librespot not being able to handle credentials.json being elsewhere, we copy it to the current dir."""
+    if saved_credential_file is None:
+        saved_credential_file = SAVED_CREDENTIALS_FILE
+
     if CREDENTIALS_FILE.is_file():
         logger.debug("Credentials found in current dir.")
-    elif SAVED_CREDENTIALS_FILE.is_file():
-        logger.debug("Credentials found %s", CREDENTIALS_FILE)
-        with SAVED_CREDENTIALS_FILE.open() as f:
+    elif saved_credential_file.is_file():
+        logger.debug("Credentials found %s", saved_credential_file)
+        with saved_credential_file.open() as f:
             data = json.load(f)
 
-        with CREDENTIALS_FILE.open("w") as f:
+        with CREDENTIALS_FILE.open("w") as f:  # This has to be the file we use for login.
             json.dump(data, f, indent=4)
 
 
@@ -118,13 +121,13 @@ def saved_credential_save() -> None:
         CREDENTIALS_FILE.unlink()
 
 
-def login_saved_session() -> Session | None:
+def login_saved_session(session_file: Path | None = None) -> Session | None:
     """Login to Spoofy using saved credentials."""
     login_retries = 3
 
-    saved_credential_get()
+    saved_credential_get(session_file)
 
-    if CREDENTIALS_FILE.is_file():
+    if CREDENTIALS_FILE.is_file():  # This is always the file we use for login.
         logger.info("Found credentials.json, using saved credentials")
         for _ in range(login_retries):
             try:
@@ -178,7 +181,7 @@ def get_librespot_rs_credentials() -> Session:
 
 def login_user_pass(user_name: str = "", password: str = "") -> Session:
     """Login to Spoofy using username and password. I don't think this works."""
-    logger.info("Prompting for username and password")
+    logger.info("Prompting for username and password, this generally doesn't work.")
 
     if not user_name:
         user_name = input("Username: ")
@@ -189,11 +192,13 @@ def login_user_pass(user_name: str = "", password: str = "") -> Session:
     return Session.Builder().user_pass(user_name, password).create()
 
 
-def login_zeroconf() -> Session:
+def login_zeroconf() -> Session | None:
     """Login to Spoofy using zeroconf."""
-    zeroconf = ZeroconfServer.Builder().create()
+    zeroconf = ZeroconfServer.Builder()
+    zeroconf.conf.stored_credentials_file = str(ZEROCONF_SESSION_FILE)
+    zc_server = zeroconf.create()
 
-    while not zeroconf.has_valid_session():
+    while not zc_server.has_valid_session():
         time.sleep(1)
 
-    return zeroconf
+    return login_saved_session(ZEROCONF_SESSION_FILE)
