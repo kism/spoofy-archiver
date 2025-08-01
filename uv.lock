@@ -533,7 +533,7 @@ wheels = [
 ]
 
 [[package]]
-name = "spoofyarchiver"
+name = "spoofy-archiver"
 version = "1.0.2"
 source = { editable = "." }
 dependencies = [

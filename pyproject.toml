@@ -46,7 +46,7 @@ build-backend = "uv_build"
 module-root = ""
 
 [project.scripts]
-spoofy-archiver = "spoofyarchiver:__main__.main"
+spoofy-archiver = "spoofy_archiver:__main__.main"
 
 [tool.uv]
 default-groups = ["dev", "type", "test", "lint"]

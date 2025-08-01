@@ -25,9 +25,9 @@ def test_version_lock() -> None:
 
     found_version = False
     for package in uv_lock.get("package", []):
-        if package["name"] == "spoofyarchiver":
+        if package["name"] == "spoofy-archiver":
             assert package["version"] == spoofy_archiver.__version__
             found_version = True
             break
 
-    assert found_version, "spoofyarchiver not found in uv.lock"
+    assert found_version, "spoofy-archiver not found in uv.lock"
