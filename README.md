@@ -23,7 +23,7 @@ If your system default python is not 3.11+
 pipx install --python python3.11 spoofy-archiver
 ```
 
-If you must use pip
+Pip works but I don't recommend it oustide of a virtual environment.
 
 ```bash
 pip install spoofy-archiver
