@@ -10,49 +10,59 @@
 Install via [uv](https://docs.astral.sh/uv/getting-started/installation/) or [pipx](https://pipx.pypa.io/stable/installation/):
 
 ```bash
-uv tool install git+https://github.com/kism/spoofy-archiver
+uv tool install spoofy-archiver
 ```
 
 ```bash
-pipx install git+https://github.com/kism/spoofy-archiver
+pipx install spoofy-archiver
 ```
 
 If your system default python is not 3.12+
 
 ```bash
-pipx install --python python3.12 git+https://github.com/kism/spoofy-archiver
+pipx install --python python3.12 spoofy-archiver
+```
+
+If you must use pip
+
+```bash
+pip install spoofy-archiver
 ```
 
 ## Run
 
 ```bash
-spoofyarchiver --help
+spoofy-archiver --help
 ```
 
 Download your liked albums to a directory, if you don't specify a directory it will default to `<current dir>/output`:
 
 ```bash
-spoofyarchiver -o /path/to/your/dir
+spoofy-archiver -o /path/to/your/dir
 ```
 
 Download a an item from a URL:
 
 ```bash
-spoofyarchiver -o /path/to/your/dir <url>
+spoofy-archiver -o /path/to/your/dir <url>
 ```
 
 Run the cli in interactive mode:
 
 ```bash
-spoofyarchiver --interactive -o /path/to/your/dir
+spoofy-archiver --interactive -o /path/to/your/dir
 ```
 
 ## Uninstall
 
 ```bash
-uv tool uninstall spoofyarchiver
+uv tool uninstall spoofy-archiver
 ```
 
 ```bash
-pipx uninstall spoofyarchiver
+pipx uninstall spoofy-archiver
+```
+
+```bash
+pip uninstall spoofy-archiver
 ```
