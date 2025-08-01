@@ -40,3 +40,13 @@ Run the cli in interactive mode:
 ```bash
 spoofyarchiver --interactive -o /path/to/your/dir
 ```
+
+## Uninstall
+
+```bash
+uv tool uninstall spoofyarchiver
+```
+
+```bash
+pipx uninstall spoofyarchiver
+```
