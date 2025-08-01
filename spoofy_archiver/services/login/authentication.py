@@ -13,7 +13,7 @@ from librespot.mercury import MercuryClient  # type: ignore[import-untyped]
 from librespot.zeroconf import ZeroconfServer  # type: ignore[import-untyped]
 from spotipy.oauth2 import SpotifyPKCE  # type: ignore[import-untyped]
 
-from spoofyarchiver.utils import SERVICE_NAME, get_logger
+from spoofy_archiver.utils import SERVICE_NAME, get_logger
 
 from .constants import CLIENT_ID, CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE
 from .models import SpoofyLoginError

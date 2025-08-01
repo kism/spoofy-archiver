@@ -11,8 +11,8 @@ from librespot.metadata import TrackId  # type: ignore[import-untyped]
 from pathvalidate import sanitize_filename, sanitize_filepath
 from tqdm import tqdm
 
-from spoofyarchiver.services.metadata import MetadataAlbum, MetadataArtist, MetadataTrack, MetadataTrackSummary
-from spoofyarchiver.utils import SERVICE_NAME, DownloadDelayer, cli_newline, get_logger
+from spoofy_archiver.services.metadata import MetadataAlbum, MetadataArtist, MetadataTrack, MetadataTrackSummary
+from spoofy_archiver.utils import SERVICE_NAME, DownloadDelayer, cli_newline, get_logger
 
 logger = get_logger(__name__)
 

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import tomlkit
 
-import spoofyarchiver
+import spoofy_archiver
 
 
 def test_version_pyproject() -> None:
@@ -12,7 +12,7 @@ def test_version_pyproject() -> None:
     pyproject_path = Path("pyproject.toml")
     with pyproject_path.open("rb") as f:
         pyproject_toml = tomlkit.load(f)
-    assert pyproject_toml.get("project", {}).get("version") == spoofyarchiver.__version__, (
+    assert pyproject_toml.get("project", {}).get("version") == spoofy_archiver.__version__, (
         "Version in pyproject.toml does not match package version."
     )
 
@@ -26,7 +26,7 @@ def test_version_lock() -> None:
     found_version = False
     for package in uv_lock.get("package", []):
         if package["name"] == "spoofyarchiver":
-            assert package["version"] == spoofyarchiver.__version__
+            assert package["version"] == spoofy_archiver.__version__
             found_version = True
             break
 

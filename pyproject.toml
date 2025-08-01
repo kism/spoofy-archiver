@@ -1,7 +1,7 @@
 #:schema None
 
 [project]
-name = "spoofyarchiver"
+name = "spoofy-archiver"
 version = "1.0.2"
 description = "Add your description here"
 readme = "README.md"
@@ -117,7 +117,7 @@ docstring-code-line-length = 40
 [tool.pytest.ini_options]
 addopts = [
     "--cov-context=test",
-    "--cov=spoofyarchiver",
+    "--cov=spoofy_archiver",
     "--cov-report=term",
     "--cov-report=html",
 ]
@@ -131,7 +131,7 @@ show_contexts = true
 
 [tool.mypy]
 plugins = ["pydantic.mypy"]
-files = ["spoofyarchiver", "tests"]
+files = ["spoofy_archiver", "tests"]
 show_error_codes = true
 strict = true
 enable_error_code = [

@@ -4,7 +4,7 @@ from typing import Self
 
 from pydantic import BaseModel, ConfigDict, model_validator
 
-from spoofyarchiver.utils import (
+from spoofy_archiver.utils import (
     get_logger,  # It's best to replace slashes here to un-confuse pathlib  # Replace slashes to un-confuse pathlib
     replace_slashes,  # It's best to replace slashes here to un-confuse pathlib
 )

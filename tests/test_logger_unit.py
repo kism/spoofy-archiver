@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from spoofyarchiver.utils.logger import (
+from spoofy_archiver.utils.logger import (
     TRACE_LEVEL_NUM,
     CustomLogger,
     _set_log_level,

@@ -6,12 +6,12 @@ from pathlib import Path
 
 import duckdb
 
-from spoofyarchiver.services.metadata import (
+from spoofy_archiver.services.metadata import (
     MetadataAlbum,
     MetadataArtist,
     MetadataTrack,
 )
-from spoofyarchiver.utils.logger import get_logger
+from spoofy_archiver.utils.logger import get_logger
 
 from .models import AlbumCacheSummary
 

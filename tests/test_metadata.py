@@ -6,7 +6,7 @@ from typing import Any
 
 import pytest
 
-from spoofyarchiver.services.metadata import MetadataAlbum, MetadataArtist, MetadataTrack
+from spoofy_archiver.services.metadata import MetadataAlbum, MetadataArtist, MetadataTrack
 
 
 @pytest.fixture

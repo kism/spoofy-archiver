@@ -3,9 +3,9 @@
 import argparse
 from pathlib import Path
 
-from spoofyarchiver import __version__, cli
-from spoofyarchiver.utils import SERVICE_NAME
-from spoofyarchiver.utils.logger import get_logger, setup_logger
+from spoofy_archiver import __version__, cli
+from spoofy_archiver.utils import SERVICE_NAME
+from spoofy_archiver.utils.logger import get_logger, setup_logger
 
 logger = get_logger(__name__)
 

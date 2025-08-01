@@ -8,11 +8,11 @@ from librespot.core import Session  # type: ignore[import-untyped]
 from pathvalidate import sanitize_filepath
 from requests import RequestException
 
-from spoofyarchiver.services.api.main import SpoofyAPISession
-from spoofyarchiver.services.metadata import MetadataAlbum, MetadataArtist
-from spoofyarchiver.services.track_downloader.main import SpoofyTrackDownloader
-from spoofyarchiver.utils import DownloadDelayer, cli_newline
-from spoofyarchiver.utils.logger import get_logger
+from spoofy_archiver.services.api.main import SpoofyAPISession
+from spoofy_archiver.services.metadata import MetadataAlbum, MetadataArtist
+from spoofy_archiver.services.track_downloader.main import SpoofyTrackDownloader
+from spoofy_archiver.utils import DownloadDelayer, cli_newline
+from spoofy_archiver.utils.logger import get_logger
 
 from .constants import DOWNLOAD_URL
 

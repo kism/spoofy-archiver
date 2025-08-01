@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from spoofyarchiver.services.api import SpoofyAPISession
-from spoofyarchiver.services.archiver import SpoofyArchiver
-from spoofyarchiver.services.login import login_cli_interactive
-from spoofyarchiver.utils import SERVICE_NAME, cli_print_heading
-from spoofyarchiver.utils.logger import get_logger
+from spoofy_archiver.services.api import SpoofyAPISession
+from spoofy_archiver.services.archiver import SpoofyArchiver
+from spoofy_archiver.services.login import login_cli_interactive
+from spoofy_archiver.utils import SERVICE_NAME, cli_print_heading
+from spoofy_archiver.utils.logger import get_logger
 
 if TYPE_CHECKING:
     from librespot.core import Session  # type: ignore[import-untyped]

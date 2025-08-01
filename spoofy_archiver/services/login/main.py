@@ -5,7 +5,7 @@ from pathlib import Path
 
 from librespot.core import Session  # type: ignore[import-untyped]
 
-from spoofyarchiver.utils import get_logger
+from spoofy_archiver.utils import get_logger
 
 from .authentication import (
     get_librespot_rs_credentials,

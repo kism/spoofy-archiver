@@ -1,6 +1,6 @@
 """Models for Spoofy login service."""
 
-from spoofyarchiver.utils import SERVICE_NAME
+from spoofy_archiver.utils import SERVICE_NAME
 
 
 class SpoofyLoginError(Exception):

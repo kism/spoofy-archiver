@@ -2,11 +2,11 @@
 
 from pathlib import Path
 
-from spoofyarchiver.services.api import SpoofyAPISession
-from spoofyarchiver.services.archiver import SpoofyArchiver
-from spoofyarchiver.services.login import login_cli
-from spoofyarchiver.utils import SERVICE_NAME
-from spoofyarchiver.utils.logger import get_logger
+from spoofy_archiver.services.api import SpoofyAPISession
+from spoofy_archiver.services.archiver import SpoofyArchiver
+from spoofy_archiver.services.login import login_cli
+from spoofy_archiver.utils import SERVICE_NAME
+from spoofy_archiver.utils.logger import get_logger
 
 logger = get_logger(__name__)
 

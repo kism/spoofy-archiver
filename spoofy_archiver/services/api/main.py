@@ -6,8 +6,8 @@ from pathlib import Path
 import requests
 from librespot.core import Session  # type: ignore[import-untyped]
 
-from spoofyarchiver.services.api_cache import SpoofyAPICacheDB
-from spoofyarchiver.services.metadata import (
+from spoofy_archiver.services.api_cache import SpoofyAPICacheDB
+from spoofy_archiver.services.metadata import (
     AlbumListResult,
     MetadataAlbum,
     MetadataArtist,
@@ -15,7 +15,7 @@ from spoofyarchiver.services.metadata import (
     MetadataTrack,
     MetadataTrackList,
 )
-from spoofyarchiver.utils import cli_newline, get_logger
+from spoofy_archiver.utils import cli_newline, get_logger
 
 from .constants import API_URL
 
