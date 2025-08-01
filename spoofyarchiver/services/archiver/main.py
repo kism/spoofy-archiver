@@ -4,9 +4,9 @@ import time
 from pathlib import Path
 
 import requests
-from requests import RequestException
 from librespot.core import Session  # type: ignore[import-untyped]
 from pathvalidate import sanitize_filepath
+from requests import RequestException
 
 from spoofyarchiver.services.api.main import SpoofyAPISession
 from spoofyarchiver.services.metadata import MetadataAlbum, MetadataArtist

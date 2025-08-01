@@ -15,7 +15,7 @@ from spotipy.oauth2 import SpotifyPKCE  # type: ignore[import-untyped]
 
 from spoofyarchiver.utils import SERVICE_NAME, get_logger
 
-from .constants import CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE, CLIENT_ID
+from .constants import CLIENT_ID, CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE
 from .models import SpoofyLoginError
 
 logger = get_logger(__name__)
