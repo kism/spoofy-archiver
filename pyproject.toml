@@ -1,0 +1,147 @@
+#:schema None
+
+[project]
+name = "spoofyarchiver"
+version = "0.1.2"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "colorama>=0.4.6",
+    "duckdb>=1.3.2",
+    "librespot>=0.0.9",
+    "mutagen>=1.47.1",
+    "pathvalidate>=3.3.1",
+    # "pillow>=11.1.0",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.1",
+    "requests>=2.30.0",
+    "spotipy>=2.25.1",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = ["pyright>=1.1.394"]
+type = [
+    "mypy>=1.17.0",
+    "types-colorama>=0.4.15.20240311",
+    "types-requests>=2.32.0.20241016",
+    "types-tqdm>=4.67.0.20250516",
+]
+lint = ["ruff>=0.12.7"]
+test = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-random-order>=1.1.1",
+    "tomlkit>=0.13.2",
+    "detect-test-pollution>=1.2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[project.scripts]
+spoofy-archiver = "spoofyarchiver:__main__.main"
+
+[tool.uv]
+default-groups = ["dev", "type", "test", "lint"]
+
+[tool.uv.sources]
+mutagen = { git = "https://github.com/quodlibet/mutagen", rev = "9e3ff54b7413b36046754d06f7c50a110ee8327b" }
+
+
+[tool.ruff]
+cache-dir = "~/.cache/ruff"
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+extend-fixable = ["B", "I001"] # KG I think this means something...
+extend-unsafe-fixes = [
+    "F401",
+] # KG I don't like that this is fixed automatically (this doesn't work?)
+select = ["ALL"] # KG Include absolutely all of Ruff's rules.
+ignore = [
+    # Modules
+    "DJ",  # KG Django not required
+    "DTZ", # KG no need to specify timezone for time objects
+
+    # Specific rules
+    # "ANN101", # KG Why define self type for object functions...
+    "TD002",  # KG Verbose TODO, only I work on this project
+    "TD003",  # KG Verbose TODO, only I work on this project
+    "ISC001", # KG conflict in the formatter
+    "COM812", # KG conflict in the formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = [
+    # Modules
+    "ARG", # KG Unused function args -> fixtures nevertheless are functionally relevant
+    "FBT", # KG Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+    "ANN", # KG Don't care about annotations in tests
+    "D",   # KG Don't care about docstrings in tests
+
+    # Specific rules
+    "S101",    # KG asserts allowed in tests.
+    "SLF001",  # KG Accessing private members is needed for testing.
+    "INP001",  # KG __init__.py not needed for PyTest.
+    "PT004",   # KG monkeypatch doesn't return.
+    "S311",    # KG I'll assume no real crypto will be done in PyTest.
+    "S105",    # KG Hardcoded fake passwords are fine in tests.
+    "PLR0913", # KG Tests can have as many arguments as they want.
+    "BLE001",  # KG Tests can use BaseException.
+    "TRY002",  # KG Tests can use bare except.
+    "PLR2004", # KG Tests can use magic comparisons.
+    "S106",    # KG Hardcoded passwords are fine in tests.
+]
+
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 40
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov-context=test",
+    "--cov=spoofyarchiver",
+    "--cov-report=term",
+    "--cov-report=html",
+]
+testpaths = ["tests"]
+filterwarnings = [ # These are out of my control
+    "ignore::DeprecationWarning:google.protobuf.*",
+]
+
+[tool.coverage.html]
+show_contexts = true
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+files = ["spoofyarchiver", "tests"]
+show_error_codes = true
+strict = true
+enable_error_code = [
+    "ignore-without-code",
+    "redundant-expr",
+    "truthy-bool",
+    "type-arg",
+    "unused-awaitable",
+    "possibly-undefined",
+    "redundant-self",
+]
+warn_unreachable = true
+warn_redundant_casts = true

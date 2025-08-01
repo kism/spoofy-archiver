@@ -1,0 +1,34 @@
+{
+  "album": {
+    "album_type": "album",
+    "artists": [
+      {
+        "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+        "href": "https://api.spoofy.com/v1/artists/zzzz",
+        "id": "zzzz",
+        "name": "PytestArtist",
+        "type": "artist",
+        "uri": "spoofy:artist:zzzz"
+      }
+    ],
+    "id": "zzzz",
+    "name": "PytestAlbum",
+    "release_date": "2023-10-01",
+    "total_tracks": 10
+  },
+  "id": "zzzz",
+  "name": "PytestTrack",
+  "artists": [
+    {
+      "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+      "href": "https://api.spoofy.com/v1/artists/zzzz",
+      "id": "zzzz",
+      "name": "PytestArtist",
+      "type": "artist",
+      "uri": "spoofy:artist:zzzz"
+    }
+  ],
+  "track_number": 1,
+  "disc_number": 1,
+  "duration_ms": 69931
+}

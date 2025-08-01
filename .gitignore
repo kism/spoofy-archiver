@@ -1,0 +1,35 @@
+# This app
+credentials.json*
+*.ogg*
+output/*
+*.pkl
+*.downlaod
+*.temp
+*.duckdb
+mutagen_playground.py
+temp_*.json
+.env*
+.cache
+cookies.txt
+cookies.json
+*.cache
+
+# Cspell
+.cspell/.cspellcache
+.cspellcache
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.coverage
+
+# Virtual environments
+.venv
+.coverage
+
+htmlcov/

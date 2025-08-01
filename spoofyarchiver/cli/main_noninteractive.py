@@ -1,0 +1,30 @@
+"""Non-Interactive CLI."""
+
+from pathlib import Path
+
+from spoofyarchiver.services.api import SpoofyAPISession
+from spoofyarchiver.services.archiver import SpoofyArchiver
+from spoofyarchiver.services.login import login_cli
+from spoofyarchiver.utils.logger import get_logger
+
+logger = get_logger(__name__)
+
+
+def noninteractive(output_directory: Path, delay: int, url: str | None = None) -> None:
+    """CLI."""
+    session = login_cli()
+    logger.info("Logged in as %s", session.username())
+
+    spoofy_api = SpoofyAPISession(session, output_directory=output_directory)
+    spoofy_archiver: SpoofyArchiver = SpoofyArchiver(
+        session=session,
+        output_directory=output_directory,
+        download_delay=delay,
+    )
+
+    if not url:
+        logger.info("No URL provided, downloading liked albums from user.")
+        liked_album_list = spoofy_api.get_liked_albums()
+        spoofy_archiver.download_albums(liked_album_list)
+    else:
+        spoofy_archiver.download_url(url)

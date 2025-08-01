@@ -1,0 +1,18 @@
+---
+name: Check (Ruff)
+
+on:
+  push:
+    branches:
+      - main
+      - test
+    paths-ignore:
+      - "**/README.md"
+
+jobs:
+  check_py:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/ruff-action@v2

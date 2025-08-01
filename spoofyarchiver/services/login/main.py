@@ -1,0 +1,61 @@
+"""Spoofy login related functions."""
+
+import sys
+from pathlib import Path
+
+from librespot.core import Session  # type: ignore[import-untyped]
+
+from spoofyarchiver.utils import get_logger
+
+from .authentication import (
+    get_librespot_rs_credentials,
+    login_oauth,
+    login_saved_session,
+    login_user_pass,
+    login_zeroconf,
+)
+
+logger = get_logger(__name__)
+
+
+SAVED_CREDENTIALS_FILE = Path.home() / ".config" / "spoofyarchiver" / "credentials.json"
+
+CREDENTIALS_FILE = Path("credentials.json")
+
+
+def login_cli_interactive() -> Session:
+    """Login to Spoofy and return a session."""
+    session = login_saved_session()
+    if session:
+        return session
+
+    logger.info("Saved credentials not found, prompting...")
+
+    user_input = ""
+    while True:
+        try:
+            user_input = input(  # spell-checker: disable-next-line
+                "Login with [u]sername and password, [o]auth, [z]eroconf, librespot-[r]s or [q]uit: "
+            ).lower()
+        except KeyboardInterrupt:
+            user_input = "q"
+
+        if user_input[0] == "u":
+            return login_user_pass()
+        if user_input[0] == "z":
+            return login_zeroconf()
+        if user_input[0] == "o":
+            return login_oauth()
+        if user_input[0] == "r":
+            return get_librespot_rs_credentials()
+        if user_input[0] == "q":
+            sys.exit(0)
+
+
+def login_cli() -> Session:
+    """Login to Spoofy using the CLI, non-interactively."""
+    session = login_saved_session()
+    if session:
+        return session
+
+    return login_oauth()

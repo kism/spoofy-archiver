@@ -1,0 +1,321 @@
+{
+  "album_type": "album",
+  "total_tracks": 11,
+  "available_markets": ["PyTest"],
+  "external_urls": { "spoofy": "https://yep.spoofy.com/album/zzzz" },
+  "href": "https://api.spoofy.com/v1/albums/zzzz",
+  "id": "zzzz",
+  "images": [
+    { "url": "https://i.spoofy.xyz/image/zzzz", "height": 640, "width": 640 },
+    { "url": "https://i.spoofy.xyz/image/zzzz", "height": 300, "width": 300 },
+    { "url": "https://i.spoofy.xyz/image/zzzz", "height": 64, "width": 64 }
+  ],
+  "name": "TrackName",
+  "release_date": "2024-07-12",
+  "release_date_precision": "day",
+  "type": "album",
+  "uri": "spoofy:album:zzzz",
+  "artists": [
+    {
+      "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+      "href": "https://api.spoofy.com/v1/artists/zzzz",
+      "id": "zzzz",
+      "name": "TrackName",
+      "type": "artist",
+      "uri": "spoofy:artist:zzzz"
+    }
+  ],
+  "tracks": {
+    "href": "https://api.spoofy.com/v1/albums/zzzz/tracks?offset=0&limit=50",
+    "limit": 50,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 11,
+    "items": [
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 2,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 3,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 4,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 5,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 6,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 7,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 8,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 9,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 10,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      },
+      {
+        "artists": [
+          {
+            "external_urls": { "spoofy": "https://yep.spoofy.com/artist/zzzz" },
+            "href": "https://api.spoofy.com/v1/artists/zzzz",
+            "id": "zzzz",
+            "name": "TrackName",
+            "type": "artist",
+            "uri": "spoofy:artist:zzzz"
+          }
+        ],
+        "available_markets": ["PyTest"],
+        "disc_number": 1,
+        "duration_ms": 1000,
+        "explicit": false,
+        "external_urls": { "spoofy": "https://yep.spoofy.com/mp3-review/zzzz" },
+        "href": "https://api.spoofy.com/v1/tracks/zzzz",
+        "id": "zzzz",
+        "name": "TrackName",
+        "preview_url": "https://p.spoofy.xyz/mp3-review/zzzz",
+        "track_number": 11,
+        "type": "track",
+        "uri": "spoofy:track:zzzz",
+        "is_local": false
+      }
+    ]
+  },
+  "copyrights": [
+    { "text": "\u00a9 2024 ArtistName Records LLC", "type": "C" },
+    { "text": "\u2117 2024 ArtistName Records LLC", "type": "P" }
+  ],
+  "external_ids": { "upc": "00000" },
+  "genres": [],
+  "label": "ArtistName",
+  "popularity": 75
+}
