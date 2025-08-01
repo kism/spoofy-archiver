@@ -3,7 +3,7 @@
 [project]
 name = "spoofy-archiver"
 version = "1.0.2"
-description = "Add your description here"
+description = "Archiver for popular streaming service Spoofy"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
