@@ -177,7 +177,7 @@ def get_librespot_rs_credentials() -> Session:
 
 
 def login_user_pass(user_name: str = "", password: str = "") -> Session:
-    """Login to Spoofy using username and password."""
+    """Login to Spoofy using username and password. I don't think this works."""
     logger.info("Prompting for username and password")
 
     if not user_name:

@@ -1,5 +1,10 @@
 # Spoofy Archiver
 
+[![Check](https://github.com/kism/spoofy-archiver/actions/workflows/check.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/check.yml)
+[![CheckType](https://github.com/kism/spoofy-archiver/actions/workflows/check_types.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/check_types.yml)
+[![Test](https://github.com/kism/spoofy-archiver/actions/workflows/test.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/kism/spoofy-archiver/graph/badge.svg?token=FPGDA0ODT7)](https://codecov.io/gh/kism/spoofy-archiver)
+
 ## Install
 
 Install via [uv](https://docs.astral.sh/uv/getting-started/installation/) or [pipx](https://pipx.pypa.io/stable/installation/):
