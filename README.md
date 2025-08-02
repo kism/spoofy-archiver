@@ -1,5 +1,7 @@
 # Spoofy Archiver
 
+Tool to archive from streaming service Spoofy. Does not work with a free account.
+
 [![Check](https://github.com/kism/spoofy-archiver/actions/workflows/check.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/check.yml)
 [![CheckType](https://github.com/kism/spoofy-archiver/actions/workflows/check_types.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/check_types.yml)
 [![Test](https://github.com/kism/spoofy-archiver/actions/workflows/test.yml/badge.svg)](https://github.com/kism/spoofy-archiver/actions/workflows/test.yml)
