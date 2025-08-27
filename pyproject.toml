@@ -56,7 +56,7 @@ default-groups = ["dev", "type", "test", "lint"]
 
 [tool.uv.sources]
 mutagen = { git = "https://github.com/quodlibet/mutagen", rev = "9e3ff54b7413b36046754d06f7c50a110ee8327b" }
-
+librespot = { git = "https://github.com/kokarare1212/librespot-python", rev = "1ad1e40b5adeab6c185c7abc4cca3489d5711906" }
 
 [tool.ruff]
 cache-dir = "~/.cache/ruff"
