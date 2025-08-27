@@ -37,7 +37,6 @@ def track_data(test_data_dir: Path) -> Any:
         return json.load(file)
 
 
-
 class TestMetadataArtist:
     """Test the MetadataArtist class."""
 
