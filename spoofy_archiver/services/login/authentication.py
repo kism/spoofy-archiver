@@ -6,12 +6,12 @@ import os
 import time
 from pathlib import Path
 
-import spotipy  # type: ignore[import-untyped]
+import spotipy
 from dotenv import load_dotenv
-from librespot.core import Session  # type: ignore[import-untyped]
-from librespot.mercury import MercuryClient  # type: ignore[import-untyped]
-from librespot.zeroconf import ZeroconfServer  # type: ignore[import-untyped]
-from spotipy.oauth2 import SpotifyPKCE  # type: ignore[import-untyped]
+from librespot.core import Session
+from librespot.mercury import MercuryClient
+from librespot.zeroconf import ZeroconfServer
+from spotipy.oauth2 import SpotifyPKCE
 
 from spoofy_archiver.utils import SERVICE_NAME, get_logger
 

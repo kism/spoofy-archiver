@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 
-from librespot.core import Session  # type: ignore[import-untyped]
+from librespot.core import Session
 
 from spoofy_archiver.utils import get_logger
 

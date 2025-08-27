@@ -10,7 +10,7 @@ from spoofy_archiver.utils import SERVICE_NAME, cli_print_heading
 from spoofy_archiver.utils.logger import get_logger
 
 if TYPE_CHECKING:
-    from librespot.core import Session  # type: ignore[import-untyped]
+    from librespot.core import Session
 
 
 logger = get_logger(__name__)

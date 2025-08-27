@@ -150,5 +150,9 @@ warn_unreachable = true
 warn_redundant_casts = true
 warn_no_return = true
 
+[[tool.mypy.overrides]]
+module = ['librespot.*', 'spotipy.*']
+ignore_missing_imports = true
+
 [tool.ty.rules]
 missing-argument = "ignore"
