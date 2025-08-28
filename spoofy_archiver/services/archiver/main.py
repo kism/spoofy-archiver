@@ -4,10 +4,10 @@ import time
 from pathlib import Path
 
 import requests
-from librespot.core import Session
 from pathvalidate import sanitize_filepath
 from requests import RequestException
 
+from librespot.core import Session
 from spoofy_archiver.services.api.main import SpoofyAPISession
 from spoofy_archiver.services.metadata import MetadataAlbum, MetadataArtist
 from spoofy_archiver.services.track_downloader.main import SpoofyTrackDownloader
