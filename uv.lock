@@ -606,7 +606,7 @@ wheels = [
 
 [[package]]
 name = "spoofy-archiver"
-version = "1.0.6rc2"
+version = "1.0.6"
 source = { editable = "." }
 dependencies = [
     { name = "colorama" },
