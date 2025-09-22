@@ -111,7 +111,8 @@ class SpoofyTrackDownloader:
                 f" after {i + 1} attempts"
             )
             with self.file_path_unavailable.open("w") as f:
-                f.write(msg)
+                if f.read() != msg:
+                    f.write(msg)
             logger.error(msg)
             cli_newline()
 
