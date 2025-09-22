@@ -7,6 +7,7 @@ from .models import (
     MetadataArtist,
     MetadataPlaylist,
     MetadataTrack,
+    MetadataTrackFile,
     MetadataTrackList,
     MetadataTrackSummary,
 )
@@ -18,6 +19,7 @@ __all__ = [
     "MetadataArtist",
     "MetadataPlaylist",
     "MetadataTrack",
+    "MetadataTrackFile",
     "MetadataTrackList",
     "MetadataTrackSummary",
 ]

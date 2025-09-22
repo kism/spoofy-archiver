@@ -1,6 +1,6 @@
 """Model for Tracks."""
 
-from typing import Self
+from typing import Any, Self
 
 from pydantic import BaseModel, ConfigDict, model_validator
 
@@ -101,6 +101,36 @@ class MetadataTrackSummary(BaseModel):
 
 
 # region Track
+class MetadataTrackFile(BaseModel):
+    """Metadata for a track (ogg) file."""
+
+    model_config = ConfigDict(strict=True)
+
+    artist: str = ""
+    album: str = ""
+    title: str = ""
+    tracknumber: str = ""
+    discnumber: str = ""
+    date: str = ""
+    albumartist: str = ""
+    totaldiscs: str = ""
+    totaltracks: str = ""
+    genre: str = ""
+    label: str = ""
+    genres: str = ""
+    upc: str = ""
+
+    # If the input is a list, use just the first item
+    @model_validator(mode="before")
+    @classmethod
+    def validate_list_inputs(cls, values: Any) -> Any:  # noqa: ANN401 Required for this pre-validation
+        """Validate list inputs."""
+        for key, value in values.items():
+            if isinstance(value, list) and value:
+                values[key] = value[0]
+        return values
+
+
 class MetadataTrack(BaseModel):
     """Metadata for a track."""
 

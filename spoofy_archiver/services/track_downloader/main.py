@@ -11,7 +11,13 @@ import mutagen
 from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
 from librespot.core import Session
 from librespot.metadata import TrackId
-from spoofy_archiver.services.metadata import MetadataAlbum, MetadataArtist, MetadataTrack, MetadataTrackSummary
+from spoofy_archiver.services.metadata import (
+    MetadataAlbum,
+    MetadataArtist,
+    MetadataTrack,
+    MetadataTrackFile,
+    MetadataTrackSummary,
+)
 from spoofy_archiver.utils import SERVICE_NAME, DownloadDelayer, cli_newline, get_logger
 
 logger = get_logger(__name__)
@@ -224,37 +230,50 @@ class SpoofyTrackDownloader:
         """
         logger.debug("Setting Metadata for: %s", file_path)
         audio = mutagen.File(file_path)  # type: ignore[attr-defined]
-        audio["artist"] = self.album.get_track_artist()
-        audio["album"] = self.album.name
-        audio["title"] = self.track.name
-        audio["tracknumber"] = str(self.track.track_number)
-        audio["discnumber"] = str(self.track.disc_number)
-        audio["date"] = self.album.release_date
-        audio["albumartist"] = self.album.get_first_album_artist_str()
-        audio["totaldiscs"] = str(self.album.get_total_discs())
-        audio["totaltracks"] = str(self.album.total_tracks)
+
+        existing_file_metadata = MetadataTrackFile(**audio)
+        new_track_metadata = MetadataTrackFile()
+
+        new_track_metadata.artist = self.album.get_track_artist()
+        new_track_metadata.album = self.album.name
+        new_track_metadata.title = self.track.name
+        new_track_metadata.tracknumber = str(self.track.track_number)
+        new_track_metadata.discnumber = str(self.track.disc_number)
+        new_track_metadata.date = self.album.release_date
+        new_track_metadata.albumartist = self.album.get_first_album_artist_str()
+        new_track_metadata.totaldiscs = str(self.album.get_total_discs())
+        new_track_metadata.totaltracks = str(self.album.total_tracks)
 
         if hasattr(self.album, "genre"):
-            audio["genre"] = self.album.genre
+            new_track_metadata.genre = self.album.genre
         elif hasattr(self.album_artist, "genre"):
-            audio["genre"] = self.album_artist.genre
-
-        # Non-standard tags
-        audio["label"] = self.album.label
-        audio[f"{SERVICE_NAME_LOWER}albumid"] = self.album.id
-        audio[f"{SERVICE_NAME_LOWER}trackid"] = self.track.id
-        audio[f"{SERVICE_NAME_LOWER}artistid"] = self.album_artist.id
+            new_track_metadata.genre = self.album_artist.genre
 
         def capitailise_all_words(string: str) -> str:
             return " ".join([word.capitalize() for word in string.split()])
 
         if self.album.genres != []:
-            audio["genres"] = ", ".join([capitailise_all_words(genre) for genre in self.album.genres])
+            new_track_metadata.genres = ", ".join([capitailise_all_words(genre) for genre in self.album.genres])
         elif self.album_artist.genres != []:
-            audio["genres"] = ", ".join([capitailise_all_words(genre) for genre in self.album_artist.genres])
+            new_track_metadata.genres = ", ".join([capitailise_all_words(genre) for genre in self.album_artist.genres])
 
         if hasattr(self.album, "upc"):
-            audio["upc"] = self.album.upc
+            new_track_metadata.upc = self.album.upc
+
+        if existing_file_metadata == new_track_metadata:
+            logger.trace("Metadata is already correct, no update required")
+            return
+
+        logger.debug("Setting metadata")
+
+        # Set all non-None fields from new metadata to audio file
+        for field_name, field_value in new_track_metadata.model_dump().items():
+            if field_value is not None:  # Only set non-None values
+                audio[field_name] = field_value
+
+        audio[f"{SERVICE_NAME_LOWER}albumid"] = self.album.id
+        audio[f"{SERVICE_NAME_LOWER}trackid"] = self.track.id
+        audio[f"{SERVICE_NAME_LOWER}artistid"] = self.album_artist.id
 
         audio.save()
 
