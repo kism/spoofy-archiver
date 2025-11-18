@@ -2,6 +2,6 @@
 
 from spoofy_archiver.utils.logger import setup_logger
 
-__version__ = "1.0.8b1"  # This is the version of the app, used in pyproject.toml, enforced in a test.
+__version__ = "1.0.8"  # This is the version of the app, used in pyproject.toml, enforced in a test.
 
 setup_logger()
