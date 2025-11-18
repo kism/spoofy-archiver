@@ -8,11 +8,11 @@ from pathlib import Path
 
 import spotipy
 from dotenv import load_dotenv
-from spotipy.oauth2 import SpotifyPKCE
-
 from librespot.core import Session
 from librespot.mercury import MercuryClient
 from librespot.zeroconf import ZeroconfServer
+from spotipy.oauth2 import SpotifyPKCE
+
 from spoofy_archiver.utils import SERVICE_NAME, get_logger
 
 from .constants import CLIENT_ID, CREDENTIALS_FILE, SAVED_CREDENTIALS_FILE

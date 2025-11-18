@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 
 import requests
-
 from librespot.core import Session
+
 from spoofy_archiver.services.api_cache import SpoofyAPICacheDB
 from spoofy_archiver.services.metadata import (
     AlbumListResult,

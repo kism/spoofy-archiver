@@ -8,16 +8,16 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "colorama>=0.4.6",
-    "duckdb>=1.3.2",
+    "duckdb>=1.4.2",
     "librespot>=0.0.10",
     # Hecked section
     # "mutagen @ git+https://github.com/quodlibet/mutagen@9e3ff54b7413b36046754d06f7c50a110ee8327b",
     # Right not this is just sitting in the repo since its the only way to get it into PyPI.
     # End hecked section
     "pathvalidate>=3.3.1",
-    "pydantic>=2.11.7",
+    "pydantic>=2.12.4",
     "python-dotenv>=1.1.1",
-    "requests>=2.30.0",
+    "requests>=2.32.5",
     "spotipy>=2.25.1",
     "tqdm>=4.67.1",
 ]

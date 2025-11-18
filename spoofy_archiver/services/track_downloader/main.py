@@ -4,13 +4,13 @@ import time
 from pathlib import Path
 from typing import ClassVar
 
+from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
+from librespot.core import Session
+from librespot.metadata import TrackId
 from pathvalidate import sanitize_filename, sanitize_filepath
 from tqdm import tqdm
 
 import mutagen
-from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
-from librespot.core import Session
-from librespot.metadata import TrackId
 from spoofy_archiver.services.metadata import (
     MetadataAlbum,
     MetadataArtist,
@@ -22,8 +22,8 @@ from spoofy_archiver.utils import SERVICE_NAME, DownloadDelayer, cli_newline, ge
 
 logger = get_logger(__name__)
 
+# Need to check if AudioQuality.LOSSLESS works
 QUALITY_OPTIONS = [AudioQuality.VERY_HIGH, AudioQuality.HIGH, AudioQuality.NORMAL]
-
 SERVICE_NAME_LOWER = SERVICE_NAME.lower()
 
 
