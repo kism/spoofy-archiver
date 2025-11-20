@@ -110,10 +110,23 @@ class SpoofyTrackDownloader:
                 f"'{self.album.name} {self.album_artist.name} {self.track.name}'"
                 f" after {i + 1} attempts"
             )
-            with self.file_path_unavailable.open("w") as f:
-                if f.read() != msg:
-                    f.write(msg)
             logger.error(msg)
+
+            # Check if file exists and has different content before writing
+            should_write = True
+            if self.file_path_unavailable.exists():
+                try:
+                    with self.file_path_unavailable.open("r") as f:
+                        existing_content = f.read()
+                        if existing_content == msg:
+                            should_write = False
+                except Exception:
+                    logger.exception("Failed to read existing .unavailable file?")
+
+            if should_write:
+                with self.file_path_unavailable.open("w") as f:
+                    f.write(msg)
+
             cli_newline()
 
         if download_was_required:  # If we actually downloaded a file from Spoofy
