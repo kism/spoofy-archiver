@@ -25,6 +25,7 @@ logger = get_logger(__name__)
 # Need to check if AudioQuality.LOSSLESS works
 QUALITY_OPTIONS = [AudioQuality.VERY_HIGH, AudioQuality.HIGH, AudioQuality.NORMAL]
 SERVICE_NAME_LOWER = SERVICE_NAME.lower()
+DOWNLOAD_ATTEMPTS = 5
 
 
 class SpoofyTrackDownloader:
@@ -75,15 +76,39 @@ class SpoofyTrackDownloader:
         self.file_path_temp = self.dest_dir / f"{self.file_name}.download"
         self.file_path_unavailable = self.dest_dir / f"{self.file_name}.unavailable"
 
+    def _handle_download_failure(self) -> None:
+        msg = (
+            f"Failed to download: "
+            f"'{self.album.name} {self.album_artist.name} {self.track.name}'"
+            f" after {DOWNLOAD_ATTEMPTS} attempts"
+        )
+        logger.error(msg)
+
+        # Check if file exists and has different content before writing
+        should_write = True
+        if self.file_path_unavailable.exists():
+            try:
+                with self.file_path_unavailable.open("r") as f:
+                    existing_content = f.read()
+                    if existing_content == msg:
+                        should_write = False
+            except Exception:
+                logger.exception("Failed to read existing .unavailable file?")
+
+        if should_write:
+            with self.file_path_unavailable.open("w") as f:
+                f.write(msg)
+
+        cli_newline()
+
     def download(self) -> None:
         """Download the track."""
         quality = QUALITY_OPTIONS[0]
         backoff = 30
-        attempts = 5
         download_failed = True
         download_was_required = False
 
-        for i in range(attempts):
+        for i in range(DOWNLOAD_ATTEMPTS):
             try:
                 download_was_required = self._download_track(quality)
                 download_failed = False
@@ -105,29 +130,7 @@ class SpoofyTrackDownloader:
                 self.delayer.delay(additional_delay=backoff)
 
         if download_failed:
-            msg = (
-                f"Failed to download: "
-                f"'{self.album.name} {self.album_artist.name} {self.track.name}'"
-                f" after {i + 1} attempts"
-            )
-            logger.error(msg)
-
-            # Check if file exists and has different content before writing
-            should_write = True
-            if self.file_path_unavailable.exists():
-                try:
-                    with self.file_path_unavailable.open("r") as f:
-                        existing_content = f.read()
-                        if existing_content == msg:
-                            should_write = False
-                except Exception:
-                    logger.exception("Failed to read existing .unavailable file?")
-
-            if should_write:
-                with self.file_path_unavailable.open("w") as f:
-                    f.write(msg)
-
-            cli_newline()
+            self._handle_download_failure()
 
         if download_was_required:  # If we actually downloaded a file from Spoofy
             self.delayer.delay()
