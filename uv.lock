@@ -816,7 +816,7 @@ test = [
     { name = "tomlkit", specifier = ">=0.13.2" },
 ]
 type = [
-    { name = "ty", specifier = ">=0.0.1a16" },
+    { name = "ty", specifier = ">=0.0.77" },
     { name = "types-colorama", specifier = ">=0.4.15.20240311" },
     { name = "types-requests", specifier = ">=2.32.0.20241016" },
     { name = "types-tqdm", specifier = ">=4.67.0.20250516" },

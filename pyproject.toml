@@ -44,7 +44,7 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = ["spoofy_archiver"]
-module-root = ""
+module-root = "src"
 
 [project.scripts]
 spoofy-archiver = "spoofy_archiver:__main__.main"
