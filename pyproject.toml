@@ -1,5 +1,3 @@
-#:schema None
-
 [project]
 name = "spoofy-archiver"
 version = "1.0.9"
@@ -10,10 +8,7 @@ dependencies = [
     "colorama>=0.4.6",
     "duckdb>=1.4.2",
     "librespot>=0.0.10",
-    # Hecked section
-    # "mutagen @ git+https://github.com/quodlibet/mutagen@9e3ff54b7413b36046754d06f7c50a110ee8327b",
-    # Right not this is just sitting in the repo since its the only way to get it into PyPI.
-    # End hecked section
+    "mutagen>=1.48.1",
     "pathvalidate>=3.3.1",
     "pydantic>=2.12.4",
     "python-dotenv>=1.1.1",
@@ -25,8 +20,7 @@ dependencies = [
 [dependency-groups]
 dev = ["pyright>=1.1.394"]
 type = [
-    "mypy>=1.17.0",
-    "ty>=0.0.1a16",
+    "ty>=0.0.77",
     "types-colorama>=0.4.15.20240311",
     "types-requests>=2.32.0.20241016",
     "types-tqdm>=4.67.0.20250516",
@@ -49,8 +43,8 @@ requires = ["uv_build>=0.8.4,<0.9.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = ["spoofy_archiver", "mutagen"]
-module-root = ""
+module-name = ["spoofy_archiver"]
+module-root = "src"
 
 [project.scripts]
 spoofy-archiver = "spoofy_archiver:__main__.main"
@@ -84,7 +78,6 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "librespot/*" = ["ALL"]
-"mutagen/*" = ["ALL"]
 "tests/*.py" = [
     # Modules
     "ARG", # KG Unused function args -> fixtures nevertheless are functionally relevant
@@ -133,28 +126,6 @@ filterwarnings = [ # These are out of my control
 
 [tool.coverage.html]
 show_contexts = true
-
-[tool.mypy]
-plugins = ["pydantic.mypy"]
-files = ["spoofy_archiver", "tests"]
-show_error_codes = true
-strict = true
-enable_error_code = [
-    "ignore-without-code",
-    "redundant-expr",
-    "truthy-bool",
-    "type-arg",
-    "unused-awaitable",
-    "possibly-undefined",
-    "redundant-self",
-]
-warn_unreachable = true
-warn_redundant_casts = true
-warn_no_return = true
-
-[[tool.mypy.overrides]]
-module = ['librespot.*', 'spotipy.*']
-ignore_missing_imports = true
 
 [tool.ty.rules]
 missing-argument = "ignore"
