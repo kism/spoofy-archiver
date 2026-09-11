@@ -17,10 +17,10 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12", "3.13"] # Don't bother with beta versions, slow on github. https://github.com/actions/python-versions/releases
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v7
 
       - name: Set up Python ${{ matrix.python-version }}
         run: uv python install ${{ matrix.python-version }}
@@ -32,6 +32,6 @@ jobs:
         run: uv run pytest --cov-report=xml # xml report needed for codecov, other settings from pyproject.toml
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v7.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
