@@ -4,13 +4,13 @@ import time
 from pathlib import Path
 from typing import ClassVar
 
+import mutagen
 from librespot.audio.decoders import AudioQuality, VorbisOnlyAudioQuality
 from librespot.core import Session
 from librespot.metadata import TrackId
 from pathvalidate import sanitize_filename, sanitize_filepath
 from tqdm import tqdm
 
-import mutagen
 from spoofy_archiver.services.metadata import (
     MetadataAlbum,
     MetadataArtist,

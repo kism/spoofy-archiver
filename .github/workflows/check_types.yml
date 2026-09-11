@@ -10,7 +10,7 @@ on:
       - "**/README.md"
 
 jobs:
-  mypy:
+  ty:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -27,5 +27,5 @@ jobs:
       - name: Install the project
         run: uv sync --no-group test --no-group lint
 
-      - name: Check types with mypy
-        run: uv run mypy
+      - name: Check types with ty
+        run: uv run ty check
