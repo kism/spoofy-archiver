@@ -231,7 +231,7 @@ class SpoofyArchiver(SpoofyAPISession):
 
         # Cleanup url
         # Remove everything after ?
-        url = url.split("?")[0]
+        url = url.split("?", maxsplit=1)[0]
         split_url = url.split("/")
         if len(split_url) != spoofy_url_expected_segments:
             msg = f"URL not in correct format, should be: {DOWNLOAD_URL}/<whatever>/<id>"

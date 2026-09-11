@@ -261,10 +261,9 @@ class SpoofyTrackDownloader:
         new_track_metadata.totaldiscs = str(self.album.get_total_discs())
         new_track_metadata.totaltracks = str(self.album.total_tracks)
 
-        if hasattr(self.album, "genre"):
-            new_track_metadata.genre = self.album.genre
-        elif hasattr(self.album_artist, "genre"):
-            new_track_metadata.genre = self.album_artist.genre
+        new_track_metadata.genre = (
+            self.album.genres[0].capitalize() if self.album.genres else self.album_artist.get_genre()
+        )
 
         def capitailise_all_words(string: str) -> str:
             return " ".join([word.capitalize() for word in string.split()])
@@ -274,8 +273,7 @@ class SpoofyTrackDownloader:
         elif self.album_artist.genres != []:
             new_track_metadata.genres = ", ".join([capitailise_all_words(genre) for genre in self.album_artist.genres])
 
-        if hasattr(self.album, "upc"):
-            new_track_metadata.upc = self.album.upc
+        new_track_metadata.upc = self.album.get_upc()
 
         if existing_file_metadata == new_track_metadata:
             logger.trace("Metadata is already correct, no update required")
